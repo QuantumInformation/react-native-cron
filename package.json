@@ -1,11 +1,14 @@
 {
   "name": "react-native-cron",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "",
-  "main": "index.js",
+  "main": "src/ReactNativeCron.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "src/ReactNativeCron.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/QuantumInformation/react-native-cron.git"
@@ -16,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/QuantumInformation/react-native-cron/issues"
   },
-  "homepage": "https://github.com/QuantumInformation/react-native-cron#readme"
+  "homepage": "https://github.com/QuantumInformation/react-native-cron#readme",
+  "peerDependencies": {
+    "cron-parser": "^2.3.1"
+  }
 }

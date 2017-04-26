@@ -12,14 +12,10 @@ import { parseExpression } from 'cron-parser';
 export class ReactNativeCron extends Component {
 
 
-  constructor () {
-
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
-      inputBorder: '#eded',
-      cronExpression: '',
-      isValid: false,
-      isPristine: true // has any value been entered in the input
+      inputBorder: 'grey'
     }
   }
 
@@ -30,11 +26,13 @@ export class ReactNativeCron extends Component {
         inputBorder: 'green',
         isValid: true
       })
+      this.props.updateParent(true)
     } catch (e) {
       this.setState({
         inputBorder: 'red',
         isValid: false
       })
+      this.props.updateParent(false)
     }
   }
 

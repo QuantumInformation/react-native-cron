@@ -15,15 +15,27 @@ import {
 } from 'react-native';
 
 export default class DemoApp extends Component {
-  render() {
+  constructor () {
+    super()
+    this.state = {
+      isFormValid: false,
+    }
+  }
+
+  updateParent (value) {
+    this.setState({ isFormValid: value })
+    console.log(this.state.isFormValid)
+  }
+
+  render () {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
           React Native Cron Demo
         </Text>
-        <ReactNativeCron />
+        <ReactNativeCron updateParent={this.updateParent.bind(this)}/>
         <Text style={styles.instructions}>
-          The Cron input expression is {/*{native cron thing.isValid}*/}
+          The Cron input expression is {this.state.isFormValid.toString()}
         </Text>
       </View>
     );
@@ -35,18 +47,21 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#F5FCFF'
+  },
+  textAlignCenter: {
+    textAlign: 'center',
   },
   welcome: {
     fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+    marginBottom: 20
   },
   instructions: {
-    textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
   },
 });
 
 AppRegistry.registerComponent('DemoApp', () => DemoApp);
+
+
